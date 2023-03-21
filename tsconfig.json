@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "module": "commonjs", //指定生成哪个模块系统代码 可以修改该字段查看对应js文件代码是什么格式的
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "target": "es6", //ts文件编译后生成的js文件遵循es6标准
+        "noImplicitAny": true,
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "outDir": "dist",
+        "baseUrl": ".",   //可理解为将paths配置下路径的文化部映射到当前目录下，就不用跨层级导入引用了
+        "paths": {
+            "*": [
+                "node_modules/*",
+                "types/*"
+            ]
+        } 
+    },
+    "include": [
+        "src/**/*"
+    ]
+}
+
+//https://juejin.cn/post/6844904093568221191 https://lq782655835.github.io/blogs/project/ts-tsconfig.html 详细字段解析
+//https://www.tslang.cn/docs/handbook/compiler-options.html 
+//https://blog.csdn.net/Justinjiang1314/article/details/106710702   target, module和moduleResolution
+//https://zhuanlan.zhihu.com/p/148081795 解释导入规则，值得深刻理解

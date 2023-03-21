@@ -1,0 +1,38 @@
+{
+  "name": "express-passport-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "serve": "node dist/server.js",
+    "serve-debug": "nodemon --inspect dist/server.js",
+    "watch-node": "nodemon ./dist/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qqcc123/express-passport-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qqcc123/express-passport-test/issues"
+  },
+  "homepage": "https://github.com/qqcc123/express-passport-test#readme",
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/express-session": "^1.17.7",
+    "@types/pug": "2.0.4",
+    "@types/winston": "^2.4.4",
+    "nodemon": "^2.0.21"
+  },
+  "dependencies": {
+    "connect-mongo": "^5.0.0",
+    "dotenv": "^16.0.3",
+    "express": "4.17",
+    "express-session": "^1.17.3",
+    "mongoose": "^7.0.2",
+    "pug": "^3.0.2",
+    "winston": "^3.8.2"
+  }
+}
