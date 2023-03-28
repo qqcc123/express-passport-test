@@ -1,10 +1,16 @@
-import express from "express";
+import express, { NextFunction } from "express";
 import path from "path"
 import session from "express-session"
 import MongoStore from "connect-mongo"
 import mongoose from "mongoose"
+import passport from "passport";
+
+import * as homeController from "./controllers/home";
+import * as userController from "./controllers/user"
+import * as passportConfig from "./config/passport";
 
 import { MONGODB_URI, SESSION_SECRET } from "./util/secrets"
+
 
 
 const app = express();
@@ -20,7 +26,8 @@ mongoose.connect(mongoUrl).then(
     console.log(`MongoDB connection error. errMsg:  ${err}`);
 });
 
-
+app.use(passport.initialize());
+app.use(passport.session());
 app.set("port", process.env.PORT || 3000);
 app.set("views", path.join(__dirname, "../views")) //模板文件所在目录
 app.set("view engine", "pug"); //要使用的模板引擎
@@ -33,5 +40,20 @@ app.use(session({
         mongoUrl
     })
 }));
+
+// app.get("/", (req: Request, res: Response, next: NextFunction) => {
+//     console.log("111111111")
+//     // next();
+// }, (req: Request, res: Response, next: NextFunction) => {
+//     console.log("22222222")
+//     // next();
+// }, (req: Request, res: Response, next: NextFunction) => {
+//     console.log("33333333")
+//     // next();
+// });
+
+app.get("/", homeController.homePage);
+app.get("/login", userController.getLogoin);
+app.post("/login", userController.postLogin);
 
 export default app;

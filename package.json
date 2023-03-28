@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "npm run build-ts && npm run copy-static-assets",
+    "build-ts": "tsc",
     "serve": "node dist/server.js",
+    "copy-static-assets": "ts-node copyStaticAssets.ts",
     "serve-debug": "nodemon --inspect dist/server.js",
     "watch-node": "nodemon ./dist/server.js"
   },
@@ -20,18 +22,27 @@
   },
   "homepage": "https://github.com/qqcc123/express-passport-test#readme",
   "devDependencies": {
+    "@types/bson": "4.0.5",
     "@types/express": "^4.17.17",
     "@types/express-session": "^1.17.7",
+    "@types/jquery": "^3.5.16",
+    "@types/passport": "^1.0.12",
+    "@types/passport-local": "^1.0.35",
     "@types/pug": "2.0.4",
+    "@types/shelljs": "^0.8.11",
     "@types/winston": "^2.4.4",
-    "nodemon": "^2.0.21"
+    "nodemon": "^2.0.21",
+    "shelljs": "^0.8.5",
+    "ts-node": "^9.1.1"
   },
   "dependencies": {
-    "connect-mongo": "^5.0.0",
+    "connect-mongo": "4.4.0",
     "dotenv": "^16.0.3",
     "express": "4.17",
     "express-session": "^1.17.3",
-    "mongoose": "^7.0.2",
+    "mongoose": "5.11.15",
+    "passport": "0.4.1",
+    "passport-local": "^1.0.0",
     "pug": "^3.0.2",
     "winston": "^3.8.2"
   }
